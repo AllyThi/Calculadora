@@ -40,8 +40,24 @@ export default class Calculator extends Component {
             const currentOperation = this.state.operation
 
             const values = [...this.state.values]
-            values[0] =  eval(`${values[0]} ${currentOperation} ${values[1]}`)
-            values[1] = 0
+            
+            switch(currentOperation) {
+                case '+' :
+                    values[0] = (values[0] + values[1])
+                     break;
+                case '-' :
+                    values[0] = (values[0] - values[1])
+                     break;
+                case '/' :
+                    values[0] = (values[0] / values[1])
+                     break;
+                case '*' :
+                    values[0] = (values[0] * values[1])
+                     break;
+               
+        
+                             
+            }
             this.setState({
                 displayValue: values[0],
                 operation: equals ? null : operation,
@@ -50,6 +66,10 @@ export default class Calculator extends Component {
                 values
 
             })
+
+            /*values[0] =  eval(`${values[0]} ${currentOperation} ${values[1]}`)
+            values[1] = 0
+          */ 
         }
 
         
